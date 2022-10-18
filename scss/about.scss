@@ -54,3 +54,30 @@ $darkgold: rgb(107, 78, 38);
 }
 
 // -- End of mixin --
+
+main {
+    .page-area {
+        @include dimension(100%, 50px);
+        // background-color: $grey-6;
+        margin-top: 40px;
+
+        @include flex-row(End, center);
+
+        .page {
+            height: 20px;
+            // background-color: $grey-7;
+            padding-right: 5%;
+        }
+
+    }
+
+    .logo-area {
+        @include dimension(100%, 400px);
+        background-color: $grey-7;
+
+        .logo {
+            @include dimension(605px, 126px);
+
+        }
+    }
+}
