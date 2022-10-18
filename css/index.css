@@ -135,7 +135,8 @@ header nav .social-media-area #instagram {
 header nav .social-media-area #instagram:hover {
   scale: 1.15;
 }
-header nav .ham-icon, header nav #toggle_menu {
+header .ham-icon,
+header #toggle_menu {
   display: none;
 }
 
@@ -155,7 +156,7 @@ header nav .ham-icon, header nav #toggle_menu {
   width: calc(50% + 720px - 67px);
   height: 100%;
   padding: 0 10%;
-  color: #901111;
+  color: white;
   background-color: #000;
 }
 
@@ -250,6 +251,9 @@ footer .map iframe {
 }
 
 @media screen and (max-width: 720px) {
+  header {
+    position: relative;
+  }
   header nav {
     padding: 0 20px;
   }
@@ -261,12 +265,17 @@ footer .map iframe {
     left: 50%;
     translate: -50% 0;
   }
-  header nav .nav-btns, header nav .social-media-area {
+  header nav .nav-btns,
+header nav .social-media-area {
     display: none;
   }
-  header nav .ham-icon {
+  header .ham-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     display: block;
-    font-size: 2rem;
+    font-size: 3rem;
     z-index: 20;
   }
   header #ham_icon:checked ~ #toggle_menu {
@@ -276,7 +285,7 @@ footer .map iframe {
   header #toggle_menu {
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     display: none;
     visibility: hidden;
@@ -284,9 +293,10 @@ footer .map iframe {
   }
   .pagination .content {
     width: 100%;
-    color: #901111;
+    color: white;
   }
-  footer .information, footer .map {
+  footer .information,
+footer .map {
     position: relative !important;
     top: 0;
     left: 0;
