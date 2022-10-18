@@ -11,10 +11,15 @@ $logo_color: rgb(141, 215, 204);
 $darkgold: rgb(107, 78, 38);
 // -- End of variable --
 
+// -- animation
+@keyframes test {}
+
+
 // -- Define mixin --
 @mixin dimension($w, $h) {
     width: $w;
     height: $h;
+
 }
 
 // width, height 
@@ -136,6 +141,11 @@ header {
                 &#order:hover .order-menu {
                     display: block;
                     width: 100%;
+
+                    & li:hover {
+                        background-color: #000;
+                        color: #eee;
+                    }
                 }
             }
 

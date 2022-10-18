@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap");
+@keyframes test {}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -89,6 +90,10 @@ header nav .nav-btns .nav-style#order .order-menu {
 header nav .nav-btns .nav-style#order:hover .order-menu {
   display: block;
   width: 100%;
+}
+header nav .nav-btns .nav-style#order:hover .order-menu li:hover {
+  background-color: #000;
+  color: #eee;
 }
 header nav .nav-btns:after {
   content: "";
