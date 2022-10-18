@@ -1,0 +1,60 @@
+// -- animation
+@keyframes test {}
+
+
+// -- Define mixin --
+@mixin dimension($w, $h) {
+    width: $w;
+    height: $h;
+
+}
+
+// width, height 
+@mixin position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+@mixin flex-row($main, $sub) {
+    display: flex;
+    justify-content: $main;
+    align-items: $sub;
+}
+
+// justify-content, align-items
+@mixin flex-col($main, $sub) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $main;
+    align-items: $sub;
+}
+
+// justify-content, align-items
+@mixin image($uri) {
+    background-image: url($uri);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// @mixin animation($name,$time,$count,$funtion){
+//     animation-name: $name;
+//     animation-duration: $time;
+//     animation-iteration-count: $count;
+//     animation-timing-function: $funtion;
+// }
+
+@mixin transition($time, $dealy, $funtion) {
+    transition-duration: $time;
+    transition-delay: $delay;
+    transition-timing-function: $funtion;
+
+}
+
+@mixin background($bgcolor){
+background-color: $bgcolor;
+}
+
+// -- End of mixin --

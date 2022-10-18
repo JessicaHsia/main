@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap');
-
+@import url('./_/_mixin.scss');
+@import url('./_/_variable.scss');
 // -- Define variable --
 $grey-9: #dcdcdc;
 $grey-8: #c2c2c2;
@@ -10,8 +11,8 @@ $grey-1: #121212;
 $redwine: #901111;
 $logo_color: rgb(141, 215, 204);
 $darkgold: rgb(107, 78, 38);
-// -- End of variable --
 
+// -- End of variable --
 // -- animation
 @keyframes test {}
 
@@ -53,7 +54,22 @@ $darkgold: rgb(107, 78, 38);
     background-repeat: no-repeat;
 }
 
+// @mixin animation($name,$time,$count,$funtion){
+//     animation-name: $name;
+//     animation-duration: $time;
+//     animation-iteration-count: $count;
+//     animation-timing-function: $funtion;
+// }
+
+@mixin transition($time, $dealy, $funtion) {
+    transition-duration: $time;
+    transition-delay: $delay;
+    transition-timing-function: $funtion;
+
+}
+
 // -- End of mixin --
+
 * {
     box-sizing: border-box;
     margin: 0;

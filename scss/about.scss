@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap');
 
+
 // -- Define variable --
 $grey-9: #dcdcdc;
 $grey-8: #c2c2c2;
@@ -10,7 +11,9 @@ $grey-1: #121212;
 $redwine: #901111;
 $logo_color: rgb(141, 215, 204);
 $darkgold: rgb(107, 78, 38);
+
 // -- End of variable --
+
 
 // -- animation
 @keyframes test {}
@@ -20,7 +23,6 @@ $darkgold: rgb(107, 78, 38);
 @mixin dimension($w, $h) {
     width: $w;
     height: $h;
-
 }
 
 // width, height 
@@ -53,8 +55,21 @@ $darkgold: rgb(107, 78, 38);
     background-repeat: no-repeat;
 }
 
-// -- End of mixin --
+@mixin animation($name, $time, $count, $funtion) {
+    animation-name: $name;
+    animation-duration: $time;
+    animation-iteration-count: $count;
+    animation-timing-function: $funtion;
+}
 
+@mixin transition($time, $dealy, $funtion) {
+    transition-duration: $time;
+    transition-delay: $delay;
+    transition-timing-function: $funtion;
+
+}
+
+// -- End of mixin -- 
 main {
     .page-area {
         @include dimension(100%, 50px);
@@ -67,17 +82,116 @@ main {
             height: 20px;
             // background-color: $grey-7;
             padding-right: 5%;
+
+            a {
+                text-decoration: none;
+                border-bottom: 2px solid transparent;
+
+                // color: black;
+                &:hover {
+                    border-bottom: solid black;
+                    transition: 0.1s linear;
+                }
+            }
         }
 
     }
 
     .logo-area {
         @include dimension(100%, 400px);
-        background-color: $grey-7;
+        @include flex-row(center, center);
+        // background-color: $grey-7;
 
         .logo {
             @include dimension(605px, 126px);
-
+            @include flex-row(center, center);
+            background-color: black;
+            color: $darkgold;
+            font-size: 2rem;
         }
     }
+
+    .banner-area {
+        @include dimension(100%, 800px);
+        @include flex-row(center, center);
+        // background-color: $grey-7;
+
+        .banner {
+            @include dimension(1229px, 565px);
+            @include flex-row(center, center);
+            background-color: $grey-7;
+            color: $darkgold;
+            font-size: 2rem;
+        }
+    }
+
+    .slogan-area {
+        @include dimension(100%, 800px);
+        @include flex-row(center, center);
+        // background-color: $grey-7;
+
+        .slogan {
+            @include dimension(917px, 373px);
+            @include flex-row(center, center);
+            background-color: $grey-6;
+
+            .slogan-text {
+                @include flex-row(center, center);
+                background-color: white;
+                color: black;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .history-area {
+        @include dimension(100%, 1600px);
+        @include flex-col(center, center);
+        background-color: $grey-1;
+
+        .cordon-area {
+            @include dimension(90%, 50%);
+            @include flex-row(center, center);
+            background-color: $grey-6;
+
+            .cordon-story {
+                @include dimension(45%, 80%);
+                @include flex-row(center, center);
+                background-color: lightcyan;
+                color: black;
+                font-size: 2rem;
+            }
+
+            .cordon-graduate {
+                @include dimension(45%, 80%);
+                @include flex-row(center, center);
+                background-color: lightsteelblue;
+                color: black;
+                font-size: 2rem;
+            }
+        }
+
+        .brand-area {
+            @include dimension(90%, 50%);
+            @include flex-row(center, center);
+            background-color: $grey-8;
+
+            .brand-story{
+                @include dimension(45%, 80%);
+                @include flex-row(center, center);
+                background-color: lightcyan;
+                color: black;
+                font-size: 2rem;
+            }
+
+            .brand-picture {
+                @include dimension(45%, 80%);
+                @include flex-row(center, center);
+                background-color: lightsteelblue;
+                color: black;
+                font-size: 2rem;
+            }
+        }
+    }
+
 }
