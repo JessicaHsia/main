@@ -147,12 +147,12 @@ main {
     .history-area {
         @include dimension(100%, 1600px);
         @include flex-col(center, center);
-        background-color: $grey-1;
+        // background-color: $grey-1;
 
         .cordon-area {
             @include dimension(90%, 50%);
-            @include flex-row(center, center);
-            background-color: $grey-6;
+            @include flex-row(space-around, center);
+            // background-color: $grey-6;
 
             .cordon-story {
                 @include dimension(45%, 80%);
@@ -173,10 +173,10 @@ main {
 
         .brand-area {
             @include dimension(90%, 50%);
-            @include flex-row(center, center);
-            background-color: $grey-8;
+            @include flex-row(space-around, center);
+            // background-color: $grey-8;
 
-            .brand-story{
+            .brand-story {
                 @include dimension(45%, 80%);
                 @include flex-row(center, center);
                 background-color: lightcyan;

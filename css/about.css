@@ -84,15 +84,13 @@ main .history-area {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #121212;
 }
 main .history-area .cordon-area {
   width: 90%;
   height: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: #7e7e7e;
 }
 main .history-area .cordon-area .cordon-story {
   width: 45%;
@@ -118,9 +116,8 @@ main .history-area .brand-area {
   width: 90%;
   height: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: #c2c2c2;
 }
 main .history-area .brand-area .brand-story {
   width: 45%;
