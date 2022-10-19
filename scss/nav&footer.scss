@@ -241,7 +241,7 @@ header {
 // End of pagination 
 
 footer {
-    @include dimension(100%, 811px);
+    @include dimension(100%, 468px);
     position: relative;
     background-color: $grey-7;
     color: $darkgold;

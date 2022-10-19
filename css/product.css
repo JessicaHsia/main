@@ -1,0 +1,72 @@
+@keyframes test {}
+main .page-area {
+  width: 100%;
+  height: 50px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: End;
+  align-items: center;
+}
+main .page-area .page {
+  height: 20px;
+  padding-right: 5%;
+}
+main .page-area .page a {
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+main .page-area .page a:hover {
+  border-bottom: solid black;
+  transition: 0.1s linear;
+}
+main .product-sheet-area {
+  width: 70%;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+main .product-sheet-area .product-style {
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: gold;
+  border-radius: 10px;
+}
+main .product-sheet-area .product-style:hover {
+  background-color: #7e7e7e;
+}
+main .product-pic-area {
+  width: 70%;
+  height: 1000px;
+  display: flex;
+  justify-content: space-around;
+  align-items: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+}
+main .product-pic-area .product-pic-style {
+  width: 332px;
+  height: 378px;
+  background-color: #969696;
+}
+main .message-area {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .message-area .message {
+  width: 219px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(141, 215, 204);
+  border-radius: 20px;
+}/*# sourceMappingURL=product.css.map */
