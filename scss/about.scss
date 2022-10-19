@@ -14,10 +14,8 @@ $darkgold: rgb(107, 78, 38);
 
 // -- End of variable --
 
-
 // -- animation
 @keyframes test {}
-
 
 // -- Define mixin --
 @mixin dimension($w, $h) {
@@ -98,8 +96,9 @@ main {
     }
 
     .logo-area {
-        @include dimension(100%, 400px);
+        @include dimension(100%, auto);
         @include flex-row(center, center);
+        padding: 148px 0;
         // background-color: $grey-7;
 
         .logo {
@@ -112,8 +111,9 @@ main {
     }
 
     .banner-area {
-        @include dimension(100%, 800px);
+        @include dimension(100%, auto);
         @include flex-row(center, center);
+        margin-bottom: 120px;
         // background-color: $grey-7;
 
         .banner {
@@ -126,8 +126,9 @@ main {
     }
 
     .slogan-area {
-        @include dimension(100%, 800px);
+        @include dimension(100%, 613px);
         @include flex-row(center, center);
+        padding: 120px 0;
         // background-color: $grey-7;
 
         .slogan {
@@ -145,25 +146,30 @@ main {
     }
 
     .history-area {
-        @include dimension(100%, 1600px);
+        @include dimension(100%, 1480px);
         @include flex-col(center, center);
         // background-color: $grey-1;
 
         .cordon-area {
-            @include dimension(90%, 50%);
+            @include dimension(90%, auto);
             @include flex-row(space-around, center);
+            padding: 120px 0;
             // background-color: $grey-6;
 
             .cordon-story {
-                @include dimension(45%, 80%);
+                @include dimension(45%, 402px);
                 @include flex-row(center, center);
                 background-color: lightcyan;
                 color: black;
                 font-size: 2rem;
             }
-
+            .vl {
+                @include dimension(1px, 500px);
+                border: 1px solid $grey-2;
+                background-color: $grey-6;
+            }
             .cordon-graduate {
-                @include dimension(45%, 80%);
+                @include dimension(45%, 402px);
                 @include flex-row(center, center);
                 background-color: lightsteelblue;
                 color: black;
@@ -174,18 +180,23 @@ main {
         .brand-area {
             @include dimension(90%, 50%);
             @include flex-row(space-around, center);
+            padding: 120px 0;
             // background-color: $grey-8;
 
             .brand-story {
-                @include dimension(45%, 80%);
+                @include dimension(45%, 402px);
                 @include flex-row(center, center);
                 background-color: lightcyan;
                 color: black;
                 font-size: 2rem;
             }
-
+            .vl {
+                @include dimension(1px, 500px);
+                border: 1px solid $grey-2;
+                background-color: $grey-6;
+            }
             .brand-picture {
-                @include dimension(45%, 80%);
+                @include dimension(45%, 402px);
                 @include flex-row(center, center);
                 background-color: lightsteelblue;
                 color: black;
