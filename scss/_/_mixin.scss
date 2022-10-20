@@ -39,22 +39,31 @@
     background-repeat: no-repeat;
 }
 
-// @mixin animation($name,$time,$count,$funtion){
-//     animation-name: $name;
-//     animation-duration: $time;
-//     animation-iteration-count: $count;
-//     animation-timing-function: $funtion;
-// }
+@mixin keyframe($keyframe_name, $keyframe_duration, $keyframe_count, $keyframe_time_function) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-iteration-count: $count;
+    animation-timing-function: $time_function;
+}
 
-@mixin transition($time, $dealy, $funtion) {
+@mixin transition($transition_time, $transition_dealy, $transition_funtion) {
     transition-duration: $time;
     transition-delay: $delay;
     transition-timing-function: $funtion;
 
 }
 
-@mixin background($bgcolor){
-background-color: $bgcolor;
+@mixin background($bgcolor) {
+    background-color: $bgcolor;
 }
+
+
+@mixin font($size, $weight, $family, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+    color: $color;
+}
+
 
 // -- End of mixin --

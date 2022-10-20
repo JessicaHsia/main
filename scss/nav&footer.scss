@@ -14,7 +14,13 @@ $darkgold: rgb(107, 78, 38);
 
 // -- End of variable --
 // -- animation
-@keyframes test {
+@keyframes test {}
+
+@mixin font($size, $weight, $family, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+    color: $color;
 }
 
 // -- Define mixin --
@@ -85,7 +91,7 @@ header {
     top: 0;
     border-top: 7px solid #1370a5;
     background-color: $grey-9;
-    z-index: 1;
+    z-index: 3;
 
     nav {
         @include flex-row(flex-end, center);
@@ -108,7 +114,15 @@ header {
         }
 
         .nav-btns {
-            a + a {
+            a {
+                ul {
+                    li {
+                        @include flex-row(center, center);
+                    }
+                }
+            }
+
+            a+a {
                 margin-left: 12px;
             }
 
@@ -129,6 +143,7 @@ header {
                 font-size: 1.2em;
                 letter-spacing: 1px;
                 transition: 0.3s ease;
+                z-index: 2;
 
                 &:hover {
                     background-color: #fff;
@@ -172,18 +187,18 @@ header {
             padding: 0 16px 0 32px;
             background-color: #a9a9a9;
 
-            a + a {
+            a+a {
                 margin-left: 12px;
             }
 
             .social-style {
                 width: 44px;
                 height: 44px;
-                border-radius: 50%;
             }
 
             #facebook {
-                @include image("../img/FB.png");
+                @include dimension(40px, 40px);
+                @include image('../img/FB.png');
                 transition: 0.4s ease;
                 scale: 1;
 
@@ -193,7 +208,9 @@ header {
             }
 
             #instagram {
-                @include image("../img/IG.png");
+                @include dimension(38px, 38px);
+                @include image('../img/IG.png');
+                background-size: contain;
                 transition: 0.4s ease;
                 scale: 1;
 
@@ -208,31 +225,39 @@ header {
     #toggle_menu {
         display: none;
     }
+
     .pagination {
         @include dimension(100%, 40px);
         @include flex-row(flex-end, center);
         position: absolute;
         top: 100%;
+
         .content {
             @include flex-row(space-around, center);
             @include dimension(calc(50% + 720px - 67px), 100%);
             padding: 0 10%;
             background-color: #000;
+            z-index: 1;
+
             a {
                 color: $redwine;
                 text-decoration: none;
             }
         }
-    }   // End of pagination 
+    }
+
+    // End of pagination 
 }
 
 // End of header
 
 footer {
     @include dimension(100%, 468px);
+    @include flex-row(space-between, center);
     position: relative;
     background-color: $grey-7;
     color: $darkgold;
+
     .information {
         position: absolute;
         top: 50%;
@@ -241,6 +266,7 @@ footer {
         padding: 20px;
         font-size: 1rem;
         background-color: $grey-6;
+
         #footer_title {
             @include dimension(261px, 87px);
             @include flex-row(flex-start, flex-end);
@@ -249,29 +275,35 @@ footer {
             border-bottom: 1px solid $darkgold;
             background-color: $grey-2;
         }
+
         .text {
             background-color: $grey-8;
+
             div {
                 padding-top: 20px;
             }
+
             i {
                 padding-right: 20px;
                 font-size: 20px;
             }
         }
     }
+
     .map {
         position: absolute;
         top: 50%;
         left: 50%;
         translate: 12px -50%;
         padding: 12px;
+
         iframe {
             @include dimension(624px, 313px);
             border: 0;
             border-radius: 40px;
         }
     }
+
     .copy-right {
         width: 350px;
         position: absolute;
@@ -317,7 +349,7 @@ footer {
             z-index: 20;
         }
 
-        #ham_icon:checked ~ #toggle_menu {
+        #ham_icon:checked~#toggle_menu {
             display: block;
             visibility: visible;
         }
@@ -340,6 +372,7 @@ footer {
     }
 
     footer {
+
         .information,
         .map {
             position: relative !important;
@@ -353,9 +386,15 @@ footer {
         // }
     }
 
-    #phone_Ham:checked + .phone-ham-list {
+    #phone_Ham:checked+.phone-ham-list {
         visibility: visible;
         height: 100vh;
         width: 100%;
+    }
+
+
+    .abc {
+        @include font(40px, regular, gegegegege, black);
+
     }
 }
