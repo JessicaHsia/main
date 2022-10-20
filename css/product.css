@@ -1,7 +1,6 @@
 @keyframes test {}
 main {
   position: relative;
-  top: 103px;
   width: 100%;
 }
 main .page-area {
@@ -70,6 +69,12 @@ main .product-card-area .product-card {
   width: 332px;
   height: auto;
   background-color: #dcdcdc;
+}
+main .product-card-area .product-card:hover .img-container {
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  transition-timing-function: linear;
+  transform: scale(1.1);
 }
 main .product-card-area .product-card .img-container {
   width: 100%;

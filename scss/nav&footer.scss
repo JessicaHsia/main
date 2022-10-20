@@ -60,7 +60,7 @@ $darkgold: rgb(107, 78, 38);
     animation-timing-function: $animation_time_function;
 }
 
-@mixin transition($transition_time, $transition_dealy, $transition_funtion) {
+@mixin transition($transition_time, $transition_delay, $transition_funtion) {
     transition-duration: $transition_time;
     transition-delay: $transition_delay;
     transition-timing-function: $transition_funtion;
@@ -102,7 +102,7 @@ body {
 
 header {
     @include dimension(100%, 103px);
-    position: fixed;
+    // position: fixed;
     top: 0;
     border-top: 7px solid #1370a5;
     background-color: $grey-9;
@@ -245,7 +245,7 @@ header {
         @include dimension(100%, 40px);
         @include flex-row(flex-end, center);
         position: absolute;
-        top: 100%;
+        // top: 100%;
 
         .content {
             @include flex-row(space-around, center);

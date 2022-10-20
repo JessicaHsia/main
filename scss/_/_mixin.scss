@@ -46,7 +46,7 @@
     animation-timing-function: $animation_time_function;
 }
 
-@mixin transition($transition_time, $transition_dealy, $transition_funtion) {
+@mixin transition($transition_time, $transition_delay, $transition_funtion) {
     transition-duration: $transition_time;
     transition-delay: $transition_delay;
     transition-timing-function: $transition_funtion;

@@ -85,7 +85,7 @@ $darkgold: rgb(107, 78, 38);
     animation-timing-function: $animation_time_function;
 }
 
-@mixin transition($transition_time, $transition_dealy, $transition_funtion) {
+@mixin transition($transition_time, $transition_delay, $transition_funtion) {
     transition-duration: $transition_time;
     transition-delay: $transition_delay;
     transition-timing-function: $transition_funtion;
@@ -110,10 +110,10 @@ $darkgold: rgb(107, 78, 38);
 main {
     .page-area {
         @include dimension(100%, 50px);
+        @include flex-row(End, center);
         // background-color: $grey-6;
         margin-top: 40px;
 
-        @include flex-row(End, center);
 
         .page {
             height: 20px;
