@@ -15,6 +15,7 @@ $darkgold: rgb(107, 78, 38);
 @mixin dimension($w, $h) {
     width: $w;
     height: $h;
+
 }
 
 // width, height 
@@ -47,42 +48,34 @@ $darkgold: rgb(107, 78, 38);
     background-repeat: no-repeat;
 }
 
-@mixin keyframe($keyframe_name, $keyframe_duration, $keyframe_count, $keyframe_time_function) {
-    animation-name: $keyframe_name;
-    animation-duration: $keyframe_duration;
-    animation-iteration-count: $keyframe_count;
-    animation-timing-function: $keyframe_time_function;
+@mixin keyframe($animation_name, $animation_duration, $animation_count, $animation_time_function) {
+    animation-name: $animation_name;
+    animation-duration: $animation_duration;
+    animation-iteration-count: $animation_count;
+    animation-timing-function: $animation_time_function;
 }
 
-@mixin transition($transition_time, $transition_dealy, $transition_time_funtion) {
+@mixin transition($transition_time, $transition_dealy, $transition_funtion) {
     transition-duration: $transition_time;
-    transition-delay: $transition_dealy;
-    transition-timing-function: $transition_time_funtion;
+    transition-delay: $transition_delay;
+    transition-timing-function: $transition_funtion;
 
 }
+
+@mixin background($bgcolor) {
+    background-color: $bgcolor;
+}
+
+
+@mixin font($size, $weight, $family, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+    color: $color;
+}
+
 
 // -- End of mixin --
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Noto Serif TC', sans-serif;
-}
-
-html {
-    ::-webkit-scrollbar {
-        width: 0px;
-    }
-
-    scroll-behavior: smooth;
-}
-
-body {
-    @include dimension(100%, auto);
-    position: relative;
-    font-family: 'Noto Serif TC';
-}
 
 //---keyframe
 
@@ -110,6 +103,28 @@ body {
 
 
 //---end of keyframe
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Serif TC', sans-serif;
+}
+
+html {
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    scroll-behavior: smooth;
+}
+
+body {
+    @include dimension(100%, auto);
+    position: relative;
+    font-family: 'Noto Serif TC';
+}
+
 
 
 main {
@@ -296,7 +311,7 @@ main {
             display: flex;
             align-items: center;
             color: white;
-            background-color: black;
+            background-color: black; 
         }
     }
 }

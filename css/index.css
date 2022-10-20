@@ -1,4 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap");
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+  25% {
+    transform: rotate(270deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,23 +37,6 @@ body {
   font-family: "Noto Serif TC";
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(360deg);
-  }
-  25% {
-    transform: rotate(270deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
 main {
   position: relative;
   top: 103px;

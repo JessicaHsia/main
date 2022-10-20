@@ -16,20 +16,14 @@ $darkgold: rgb(107, 78, 38);
 // -- animation
 @keyframes test {}
 
-@mixin font($size, $weight, $family, $color) {
-    font-size: $size;
-    font-weight: $weight;
-    font-family: $family;
-    color: $color;
-}
-
 // -- Define mixin --
 @mixin dimension($w, $h) {
     width: $w;
     height: $h;
+
 }
 
-// width, height
+// width, height 
 @mixin position-center {
     position: absolute;
     top: 50%;
@@ -59,11 +53,32 @@ $darkgold: rgb(107, 78, 38);
     background-repeat: no-repeat;
 }
 
-@mixin transition($time, $dealy, $funtion) {
-    transition-duration: $time;
-    transition-delay: $delay;
-    transition-timing-function: $funtion;
+@mixin keyframe($animation_name, $animation_duration, $animation_count, $animation_time_function) {
+    animation-name: $animation_name;
+    animation-duration: $animation_duration;
+    animation-iteration-count: $animation_count;
+    animation-timing-function: $animation_time_function;
 }
+
+@mixin transition($transition_time, $transition_dealy, $transition_funtion) {
+    transition-duration: $transition_time;
+    transition-delay: $transition_delay;
+    transition-timing-function: $transition_funtion;
+
+}
+
+@mixin background($bgcolor) {
+    background-color: $bgcolor;
+}
+
+
+@mixin font($size, $weight, $family, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+    color: $color;
+}
+
 
 // -- End of mixin --
 

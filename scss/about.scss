@@ -14,13 +14,38 @@ $darkgold: rgb(107, 78, 38);
 
 // -- End of variable --
 
-// -- animation
-@keyframes test {}
+//---keyframe
+
+@keyframes rotate {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    25% {
+        transform: rotate(270deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+//---end of keyframe
 
 // -- Define mixin --
 @mixin dimension($w, $h) {
     width: $w;
     height: $h;
+
 }
 
 // width, height 
@@ -53,21 +78,35 @@ $darkgold: rgb(107, 78, 38);
     background-repeat: no-repeat;
 }
 
-@mixin animation($name, $time, $count, $funtion) {
-    animation-name: $name;
-    animation-duration: $time;
-    animation-iteration-count: $count;
-    animation-timing-function: $funtion;
+@mixin keyframe($animation_name, $animation_duration, $animation_count, $animation_time_function) {
+    animation-name: $animation_name;
+    animation-duration: $animation_duration;
+    animation-iteration-count: $animation_count;
+    animation-timing-function: $animation_time_function;
 }
 
-@mixin transition($time, $dealy, $funtion) {
-    transition-duration: $time;
-    transition-delay: $delay;
-    transition-timing-function: $funtion;
+@mixin transition($transition_time, $transition_dealy, $transition_funtion) {
+    transition-duration: $transition_time;
+    transition-delay: $transition_delay;
+    transition-timing-function: $transition_funtion;
 
 }
 
-// -- End of mixin -- 
+@mixin background($bgcolor) {
+    background-color: $bgcolor;
+}
+
+
+@mixin font($size, $weight, $family, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+    color: $color;
+}
+
+
+// -- End of mixin --
+
 main {
     .page-area {
         @include dimension(100%, 50px);
@@ -128,20 +167,37 @@ main {
     .slogan-area {
         @include dimension(100%, 613px);
         @include flex-row(center, center);
+        position: relative;
         padding: 120px 0;
-        // background-color: $grey-7;
+        background-color: $grey-7;
 
-        .slogan {
-            @include dimension(917px, 373px);
+        .slogan-text {
             @include flex-row(center, center);
-            background-color: $grey-6;
+            background-color: white;
+            color: black;
+            font-size: 1.5rem;
+            position: absolute;
+            z-index: 1;
+        }
 
-            .slogan-text {
+        .slogan-oval1 {
+            @include dimension(800px, 290px);
+            @include flex-row(center, center);
+            border: 1px solid black;
+            background-color: $grey-6;
+            border-radius: 50%;
+
+            .slogan-oval2 {
+                @include dimension(730px, 295px);
                 @include flex-row(center, center);
-                background-color: white;
-                color: black;
-                font-size: 1.5rem;
+                @include keyframe(rotate, 4s, infinite, linear);
+                border: 1px solid black;
+                background-color: $grey-7;
+                border-radius: 50%;
+
+
             }
+
         }
     }
 
@@ -163,11 +219,13 @@ main {
                 color: black;
                 font-size: 2rem;
             }
+
             .vl {
                 @include dimension(1px, 500px);
                 border: 1px solid $grey-2;
                 background-color: $grey-6;
             }
+
             .cordon-graduate {
                 @include dimension(45%, 402px);
                 @include flex-row(center, center);
@@ -190,11 +248,13 @@ main {
                 color: black;
                 font-size: 2rem;
             }
+
             .vl {
                 @include dimension(1px, 500px);
                 border: 1px solid $grey-2;
                 background-color: $grey-6;
             }
+
             .brand-picture {
                 @include dimension(45%, 402px);
                 @include flex-row(center, center);

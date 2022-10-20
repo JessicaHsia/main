@@ -39,17 +39,17 @@
     background-repeat: no-repeat;
 }
 
-@mixin keyframe($keyframe_name, $keyframe_duration, $keyframe_count, $keyframe_time_function) {
-    animation-name: $name;
-    animation-duration: $duration;
-    animation-iteration-count: $count;
-    animation-timing-function: $time_function;
+@mixin keyframe($animation_name, $animation_duration, $animation_count, $animation_time_function) {
+    animation-name: $animation_name;
+    animation-duration: $animation_duration;
+    animation-iteration-count: $animation_count;
+    animation-timing-function: $animation_time_function;
 }
 
 @mixin transition($transition_time, $transition_dealy, $transition_funtion) {
-    transition-duration: $time;
-    transition-delay: $delay;
-    transition-timing-function: $funtion;
+    transition-duration: $transition_time;
+    transition-delay: $transition_delay;
+    transition-timing-function: $transition_funtion;
 
 }
 
