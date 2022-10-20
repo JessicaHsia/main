@@ -12,9 +12,9 @@
         integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=='
         crossorigin='anonymous' />
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/nav&footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="icon" type="image/x-icon" href=".//img/FB.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <!--分頁圖片ICON-->
 </head>
 
@@ -22,19 +22,19 @@
     <header class="nav-bar">
         <nav>
 
-            <div class="nav-logo">LOGO</div>
+            <div class="nav-logo"></div>
             <div class="nav-btns">
-                <a href="./product.html" class="nav-style nav-btn1">系列商品</a>
-                <a href="#" class="nav-style nav-btn2">最新消息</a>
+                <a href="./product.html" class="nav-style nav-btn1">活動快訊</a>
                 <a href="#" id="order" class="nav-style nav-btn2">
-                    立即訂購<i class="bi bi-caret-down-fill"></i>
-
+                    我要訂購<i class="bi bi-caret-down-fill"></i>
                     <ul class="order-menu">
                         <li>單品訂購</li>
                         <li>大量訂購</li>
                     </ul>
                 </a>
-                <a href="./AboutUs.html" class="nav-style nav-btn3">關於菓洞</a>
+
+                <a href="#" class="nav-style nav-btn2">產品介紹</a>
+                <a href="./AboutUs.html" class="nav-style nav-btn3">品牌故事</a>
             </div>
             <div class="social-media-area">
                 <a href="https://www.facebook.com/dessertcave0725/" target="_blank" id="facebook"
@@ -59,7 +59,7 @@
     </header>
 
     <main>
-        <div id="banner" class="banner">Banner</div>
+        <div id="banner" class="banner"></div>
         <div id="showcase" class="product-showcase">
 
             <div class="see-through1 see-through-style"></div>
@@ -102,6 +102,37 @@
                 菓&emsp;洞&emsp;甜&emsp;品&emsp;工&emsp;室&emsp;
                 產&emsp;品&emsp;列&emsp;表
             </marquee>
+            <div class="swiper-area">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="swiper-product-img"><img src="./img/香草荔葡萄夏洛特.jfif" alt=""></div>
+                            <div class="swiper-product-name">香草荔葡萄夏洛特</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swiper-product-img"><img src="./img/橙香法芙娜生巧塔.jfif" alt=""></div>
+                            <div class="swiper-product-name">橙香法芙娜生巧塔</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swiper-product-img"><img src="./img/伯爵奶茶慕斯塔.jfif" alt=""></div>
+                            <div class="swiper-product-name">伯爵奶茶慕斯塔</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swiper-product-img"></div>
+                            <div class="swiper-product-name">Slide 4</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swiper-product-img"></div>
+                            <div class="swiper-product-name">Slide 5</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swiper-product-img"></div>
+                            <div class="swiper-product-name">Slide 6</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
 
         </div>
     </main>
@@ -138,10 +169,17 @@
     </footer>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
-
-
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
 
     </script>
 </body>
