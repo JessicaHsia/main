@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap');
-@import url('./_/_mixin.scss');
-@import url('./_/_variable.scss');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap");
+@import url("./_/_mixin.scss");
+@import url("./_/_variable.scss");
 // -- Define variable --
 $grey-9: #dcdcdc;
 $grey-8: #c2c2c2;
@@ -14,17 +14,16 @@ $darkgold: rgb(107, 78, 38);
 
 // -- End of variable --
 // -- animation
-@keyframes test {}
-
+@keyframes test {
+}
 
 // -- Define mixin --
 @mixin dimension($w, $h) {
     width: $w;
     height: $h;
-
 }
 
-// width, height 
+// width, height
 @mixin position-center {
     position: absolute;
     top: 50%;
@@ -54,18 +53,10 @@ $darkgold: rgb(107, 78, 38);
     background-repeat: no-repeat;
 }
 
-// @mixin animation($name,$time,$count,$funtion){
-//     animation-name: $name;
-//     animation-duration: $time;
-//     animation-iteration-count: $count;
-//     animation-timing-function: $funtion;
-// }
-
 @mixin transition($time, $dealy, $funtion) {
     transition-duration: $time;
     transition-delay: $delay;
     transition-timing-function: $funtion;
-
 }
 
 // -- End of mixin --
@@ -74,7 +65,7 @@ $darkgold: rgb(107, 78, 38);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Noto Serif TC', sans-serif;
+    font-family: "Noto Serif TC", sans-serif;
 }
 
 html {
@@ -90,7 +81,8 @@ body {
 
 header {
     @include dimension(100%, 103px);
-    position: relative;
+    position: fixed;
+    top: 0;
     border-top: 7px solid #1370a5;
     background-color: $grey-9;
     z-index: 1;
@@ -116,7 +108,7 @@ header {
         }
 
         .nav-btns {
-            a+a {
+            a + a {
                 margin-left: 12px;
             }
 
@@ -180,10 +172,9 @@ header {
             padding: 0 16px 0 32px;
             background-color: #a9a9a9;
 
-            a+a {
+            a + a {
                 margin-left: 12px;
             }
-
 
             .social-style {
                 width: 44px;
@@ -192,8 +183,8 @@ header {
             }
 
             #facebook {
-                @include image('../img/FB.png');
-                transition: .4s ease;
+                @include image("../img/FB.png");
+                transition: 0.4s ease;
                 scale: 1;
 
                 &:hover {
@@ -202,8 +193,8 @@ header {
             }
 
             #instagram {
-                @include image('../img/IG.png');
-                transition: .4s ease;
+                @include image("../img/IG.png");
+                transition: 0.4s ease;
                 scale: 1;
 
                 &:hover {
@@ -211,89 +202,94 @@ header {
                 }
             }
         }
-
-
     }
 
     .ham-icon,
     #toggle_menu {
         display: none;
     }
+    .pagination {
+        @include dimension(100%, 40px);
+        @include flex-row(flex-end, center);
+        position: absolute;
+        top: 100%;
+        .content {
+            @include flex-row(space-around, center);
+            @include dimension(calc(50% + 720px - 67px), 100%);
+            padding: 0 10%;
+            background-color: #000;
+            a {
+                color: $redwine;
+                text-decoration: none;
+            }
+        }
+    }   // End of pagination 
 }
 
 // End of header
 
-.pagination {
-    @include dimension(100%, 40px);
-    @include flex-row(flex-end, center);
-    position: absolute;
-    top: 103px;
-
-    .content {
-        @include flex-row(space-around, center);
-        @include dimension(calc(50% + 720px - 67px), 100%);
-        padding: 0 10%;
-        color: white;
-        background-color: #000;
-    }
-}
-
-// End of pagination 
-
 footer {
-    @include dimension(100%, 811px);
+    @include dimension(100%, 468px);
     position: relative;
     background-color: $grey-7;
     color: $darkgold;
-
     .information {
         position: absolute;
         top: 50%;
-        left: 12%;
+        left: 18%;
         translate: 0 -50%;
-        padding: 16px 24px;
+        padding: 20px;
         font-size: 1rem;
         background-color: $grey-6;
-
         #footer_title {
+            @include dimension(261px, 87px);
             @include flex-row(flex-start, flex-end);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 1.2rem;
             border-bottom: 1px solid $darkgold;
-
-            .zh {
-                font-size: 2.2rem;
+            background-color: $grey-2;
+        }
+        .text {
+            background-color: $grey-8;
+            div {
+                padding-top: 20px;
             }
-
-            .en {
-                padding: 0 0 0 8px;
-                font-size: 1.6rem;
+            i {
+                padding-right: 20px;
+                font-size: 20px;
             }
         }
     }
-
     .map {
         position: absolute;
         top: 50%;
         left: 50%;
         translate: 12px -50%;
         padding: 12px;
-
         iframe {
-            @include dimension(600px, 450px);
+            @include dimension(624px, 313px);
             border: 0;
-            border-radius: 10px;
+            border-radius: 40px;
         }
+    }
+    .copy-right {
+        width: 350px;
+        position: absolute;
+        bottom: 18px;
+        left: 50%;
+        translate: -50% 0;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
     }
 }
 
-// Media Query 
+// Media Query
 @media screen and (max-width: 720px) {
     header {
         position: relative;
 
         nav {
-
             padding: 0 20px;
 
             .nav-logo {
@@ -308,7 +304,6 @@ footer {
             .social-media-area {
                 display: none;
             }
-
         }
 
         .ham-icon {
@@ -322,7 +317,7 @@ footer {
             z-index: 20;
         }
 
-        #ham_icon:checked~#toggle_menu {
+        #ham_icon:checked ~ #toggle_menu {
             display: block;
             visibility: visible;
         }
@@ -345,8 +340,6 @@ footer {
     }
 
     footer {
-
-
         .information,
         .map {
             position: relative !important;
@@ -360,8 +353,7 @@ footer {
         // }
     }
 
-
-    #phone_Ham:checked+.phone-ham-list {
+    #phone_Ham:checked + .phone-ham-list {
         visibility: visible;
         height: 100vh;
         width: 100%;
