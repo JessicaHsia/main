@@ -286,7 +286,7 @@ main .product-showcase .description .title .bg {
   left: -58px;
   color: #969696;
   z-index: 0;
-  letter-spacing: 30px;
+  font-size: 96px;
 }
 main .product-showcase .description p {
   width: 600px;
