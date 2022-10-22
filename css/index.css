@@ -274,8 +274,10 @@ main .product-showcase .profile {
 main .product-showcase .description {
   width: 600px;
   position: absolute;
+  display: flex;
+  justify-content: space-between;
   top: 532px;
-  left: 407px;
+  left: 200px;
 }
 main .product-showcase .description .title {
   width: 100%;
@@ -345,16 +347,16 @@ main .new-product {
 main .new-product img {
   width: 1034px;
   height: 624px;
-  background-color: #242424;
+  background-color: rgb(141, 215, 204);
 }
 main .new-product .text {
-  width: 870px;
+  width: calc(100% - 1034px);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: gray;
+  background-color: rgb(141, 215, 204);
 }
 main .new-product .text .title {
   width: 385px;
@@ -525,6 +527,15 @@ footer .copy-right {
   letter-spacing: 1px;
 }
 
+@media screen and (min-width: 720px) and (max-width: 1600px) {
+  main .product-showcase .rotate-img {
+    right: 0;
+  }
+  main .new-product img {
+    width: 800px;
+    height: 624px;
+  }
+}
 @media screen and (max-width: 720px) {
   header {
     position: relative;
@@ -581,11 +592,5 @@ footer .map {
     visibility: visible;
     height: 100vh;
     width: 100%;
-  }
-  .abc {
-    font-size: 40px;
-    font-weight: regular;
-    font-family: gegegegege;
-    color: black;
   }
 }/*# sourceMappingURL=index.css.map */

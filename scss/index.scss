@@ -301,6 +301,7 @@ main {
     // top: 103px;
     width: 100%;
 
+
     .banner {
         @include dimension(100%, 771px);
         @include flex-row(center, center);
@@ -365,14 +366,15 @@ main {
         .description {
             width: 600px;
             position: absolute;
+            display: flex;
+            justify-content: space-between;
             top: 532px;
-            left: 407px;
+            left: 200px;
             // background-color: $grey-7;
 
             .title {
                 @include dimension(100%, 100%);
                 position: relative;
-
                 // padding-top: 48px;
 
                 .text {
@@ -431,13 +433,13 @@ main {
 
         img {
             @include dimension(1034px, 624px);
-            background-color: $grey-2;
+            background-color: $logo_color;
         }
 
         .text {
-            @include dimension(870px, 100%);
+            @include dimension(calc(100% - 1034px), 100%);
             @include flex-col(center, flex-start);
-            background-color: gray;
+            background-color: $logo_color;
             // height: 100%;
             // flex: 1;
             // padding-left: 108px;
@@ -624,6 +626,23 @@ footer {
 }
 
 // Media Query
+
+@media screen and(min-width:720px) and (max-width:1600px) {
+    main {
+
+        .product-showcase{
+            .rotate-img{
+                right: 0;
+            }
+        }
+        .new-product {
+            img {
+                @include dimension(800px, 624px);
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 720px) {
     header {
         position: relative;
@@ -700,8 +719,4 @@ footer {
     }
 
 
-    .abc {
-        @include font(40px, regular, gegegegege, black);
-
-    }
 }
