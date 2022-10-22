@@ -181,7 +181,7 @@ header {
                 position: relative;
                 padding: 4px 8px;
                 text-decoration: none;
-                color: $darkgold;
+                color: black;
                 font-weight: 700;
                 font-size: 1.2em;
                 letter-spacing: 1px;
@@ -189,7 +189,8 @@ header {
                 z-index: 2;
 
                 &:hover {
-                    background-color: #fff;
+                    background-color: rgb(20, 20, 20);
+                    color: $darkgold;
                 }
 
                 &#order .order-menu {
