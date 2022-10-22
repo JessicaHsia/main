@@ -27,7 +27,6 @@ main .hr-head {
   height: auto;
   padding: 150px 0;
   margin: auto;
-  background-color: #dcdcdc;
 }
 main .hr-head hr {
   border-color: #c2c2c2;
@@ -51,8 +50,35 @@ main .news-container .news-card {
 main .news-container .news-card .news-info {
   width: 640px;
   height: 402px;
+  position: relative;
   margin-right: 125px;
   background-color: #969696;
+}
+main .news-container .news-card .news-info a {
+  text-decoration: none;
+}
+main .news-container .news-card .news-info .news-btn-area {
+  width: 20%;
+  height: 10%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: #dcdcdc;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+main .news-container .news-card .news-info .news-btn-area:hover i {
+  transform: translateX(2.5em);
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  transition-timing-function: linear;
+}
+main .news-container .news-card .news-info .news-btn-area button {
+  background-color: transparent;
+  border: 0px;
+  font-size: 1rem;
 }
 main .news-container .news-card .news-img {
   width: 675px;
