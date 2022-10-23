@@ -101,7 +101,7 @@ body {
 }
 
 header {
-    @include dimension(100%, 103px);
+    @include dimension(100%, 70px);
     // position: fixed;
     top: 0;
     border-top: 7px solid #1370a5;
@@ -118,8 +118,8 @@ header {
 
         .nav-logo {
             @include flex-row(center, center);
-            height: 135px;
-            width: 135px;
+            height: 102px;
+            width: 102px;
             background-color: gray;
             position: absolute;
             top: 15px;
@@ -332,6 +332,64 @@ footer {
 }
 
 // Media Query
+
+// --1600px 防止文字爆版
+@media screen and(min-width:1441px) and (max-width:1600px) {
+    main {
+
+        .product-showcase {
+            .rotate-img {
+                right: 0;
+            }
+        }
+
+        .new-product {
+            img {
+                @include dimension(800px, 624px);
+            }
+        }
+    }
+}
+
+// --End of 1600px
+
+
+
+// --1440px
+@media screen and(min-width:1240px) and (max-width:1440px) {
+    header {
+        nav {
+            @include dimension(calc(100% - 50px), 100%);
+
+            .nav-logo {
+                left: 50px;
+            }
+        }
+    }
+}
+
+// -- End of 1440px
+
+
+
+//-- 1240px
+@media screen and(min-width:720px) and (max-width:1240px) {
+    header {
+        nav {
+            @include dimension(calc(100% - 30px), 100%);
+
+            .nav-logo {
+                left: 30px;
+            }
+        }
+    }
+}
+
+//--End of 1240px
+
+
+
+// -- 720px
 @media screen and (max-width: 720px) {
     header {
         position: relative;
@@ -407,9 +465,6 @@ footer {
         width: 100%;
     }
 
-
-    .abc {
-        @include font(40px, regular, gegegegege, black);
-
-    }
 }
+
+// -- End of 720px

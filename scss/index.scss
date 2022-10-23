@@ -127,7 +127,7 @@ body {
 
 
 header {
-    @include dimension(100%, 103px);
+    @include dimension(100%, 70px);
     // position: fixed;
     top: 0;
     border-top: 7px solid $logo_color;
@@ -144,8 +144,8 @@ header {
 
         .nav-logo {
             @include flex-row(center, center);
-            height: 135px;
-            width: 135px;
+            height: 102px;
+            width: 102px;
             // background-color: gray;
             @include image('../img/logo-bg-white.png');
             position: absolute;
@@ -183,7 +183,7 @@ header {
                 text-decoration: none;
                 color: black;
                 font-weight: 700;
-                font-size: 1.2em;
+                font-size: 18px;
                 letter-spacing: 1px;
                 transition: 0.3s ease;
                 z-index: 2;
@@ -313,7 +313,7 @@ main {
     }
 
     .product-showcase {
-        @include dimension(100%, 1029px);
+        @include dimension(100%, 771px);
         @include flex-row(center, center);
         position: relative;
         color: $darkgold;
@@ -625,16 +625,23 @@ footer {
     }
 }
 
+
+
+
+
+
 // Media Query
 
-@media screen and(min-width:720px) and (max-width:1600px) {
+// --1600px 防止文字爆版
+@media screen and(min-width:1441px) and (max-width:1600px) {
     main {
 
-        .product-showcase{
-            .rotate-img{
+        .product-showcase {
+            .rotate-img {
                 right: 0;
             }
         }
+
         .new-product {
             img {
                 @include dimension(800px, 624px);
@@ -643,6 +650,53 @@ footer {
     }
 }
 
+// --End of 1600px
+
+
+
+// --1440px
+@media screen and(min-width:1240px) and (max-width:1440px) {
+    header {
+        nav {
+            @include dimension(calc(100% - 50px), 100%);
+
+            .nav-logo {
+                left: 50px;
+            }
+        }
+    }
+
+    main {
+        .product-showcase {
+            .rotate-img {
+                @include dimension(500px, 500px);
+            }
+        }
+    }
+}
+
+// -- End of 1440px
+
+
+
+//-- 1240px
+@media screen and(min-width:720px) and (max-width:1240px) {
+    header {
+        nav {
+            @include dimension(calc(100% - 30px), 100%);
+
+            .nav-logo {
+                left: 30px;
+            }
+        }
+    }
+}
+
+//--End of 1240px
+
+
+
+// -- 720px
 @media screen and (max-width: 720px) {
     header {
         position: relative;
@@ -718,5 +772,6 @@ footer {
         width: 100%;
     }
 
-
 }
+
+// -- End of 720px
