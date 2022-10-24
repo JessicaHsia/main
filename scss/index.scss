@@ -163,7 +163,7 @@ header {
             top: 15px;
             left: 0;
             border-radius: 50%;
-            z-index: 100;
+            z-index: 1;
         }
 
         .nav-btns {
@@ -278,7 +278,8 @@ header {
 
     .ham-icon,
     #toggle_menu {
-        display: none;
+        
+        display: none
     }
 
     .pagination {
@@ -785,17 +786,23 @@ footer {
         }
 
         #ham_icon:checked~#toggle_menu {
-            display: block;
-            visibility: visible;
+            @include dimension(100%, 100vh);
+            z-index: 5;
+            @include transition(1s, 0s, linear);
+            // display: block;
+            // visibility: visible;
         }
 
         #toggle_menu {
-            @include dimension(100%, 100vh);
+            @include dimension(0, 100vh);
+            @include transition(1s, 0s, linear);
             position: fixed;
             top: 0;
-            display: none;
-            visibility: hidden;
-            background-color: rgba(131, 105, 54, 0.5);
+            right: 0;
+            display: block;
+            // display: none;
+            // visibility: hidden;
+            background-color: white;
         }
 
         .pagination {
