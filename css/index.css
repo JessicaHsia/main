@@ -17,6 +17,14 @@
     transform: rotate(0deg);
   }
 }
+@keyframes marquee {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-1950px);
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -62,7 +70,7 @@ header nav .nav-logo {
   align-items: center;
   height: 102px;
   width: 102px;
-  background-image: url("../img/logo-bg-white.png");
+  background-image: url("../img/NAV/Logo/logo-bg-white.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -131,7 +139,7 @@ header nav .nav-btns:after {
   position: absolute;
   right: 0;
   height: 36px;
-  border: 2px solid #242424;
+  border-right: 2px solid #242424;
 }
 header nav .social-media-area {
   display: flex;
@@ -151,7 +159,7 @@ header nav .social-media-area .social-style {
 header nav .social-media-area #facebook {
   width: 40px;
   height: 40px;
-  background-image: url("../img/FB.png");
+  background-image: url("../img/NAV/社群/FB.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -164,7 +172,7 @@ header nav .social-media-area #facebook:hover {
 header nav .social-media-area #instagram {
   width: 38px;
   height: 38px;
-  background-image: url("../img/IG.png");
+  background-image: url("../img/NAV/社群/IG.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -212,7 +220,7 @@ main .banner {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../img/banner_img.jfif");
+  background-image: url("../img/首頁/banner_img.jfif");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -265,7 +273,7 @@ main .product-showcase .profile {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../img/義式奶油檸檬塔.png);
+  background-image: url(../img/首頁/商品列表/義式奶油檸檬塔.png);
   position: absolute;
   top: 217px;
   left: 231px;
@@ -323,7 +331,7 @@ main .product-showcase .rotate-img {
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  background-image: url("../img/檸檬塔去背.png");
+  background-image: url("../img/首頁/檸檬塔去背.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -423,48 +431,60 @@ main .product-series {
   font-size: 3rem;
   background-color: #dcdcdc;
 }
-main .product-series .text-roll {
+main .product-series .marquee-area {
   width: 100%;
-  height: 111px;
-  display: flex;
-  align-items: center;
-  color: black;
+  overflow: hidden;
 }
-main .swiper-area {
+main .product-series .marquee-area .marquee-text {
+  font-size: 96px;
+  font-weight: bold;
+  font-family: none;
+  color: black;
+  animation-name: marquee;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  width: 650px;
+  height: 96px;
+  letter-spacing: 20px;
+}
+main .product-series .marquee-area .marquee-text::before {
+  content: "PRODUCT.PRODUCT.PRODUCT.";
+}
+main .product-series .marquee-area .marquee-text::after {
+  content: "PRODUCT.PRODUCT.";
+}
+main .product-series .swiper-area {
   width: 100%;
   height: 700px;
   position: relative;
   display: flex;
   align-items: center;
 }
-main .swiper-area .swiper {
+main .product-series .swiper-area .swiper {
   width: 100%;
   height: 500px;
 }
-main .swiper-area .swiper .swiper-slide {
+main .product-series .swiper-area .swiper .swiper-slide {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  border: 1px solid black;
 }
-main .swiper-area .swiper .swiper-slide .swiper-product-img {
+main .product-series .swiper-area .swiper .swiper-slide .swiper-product-img {
   width: 100%;
   height: 90%;
+  padding-bottom: 47px;
 }
-main .swiper-area .swiper .swiper-slide .swiper-product-img img {
+main .product-series .swiper-area .swiper .swiper-slide .swiper-product-img img {
   width: 100%;
   height: 100%;
 }
-main .swiper-area .swiper .swiper-slide .swiper-product-name {
+main .product-series .swiper-area .swiper .swiper-slide .swiper-product-name {
   font-size: 20px;
   font-weight: none;
   font-family: "Noto Serif TC";
   color: black;
-}
-main .swiper-area .swiper-pagination {
-  position: absolute;
-  bottom: 50px;
 }
 
 footer {
@@ -517,13 +537,14 @@ footer .map iframe {
   border-radius: 40px;
 }
 footer .copy-right {
-  width: 350px;
+  width: 419px;
+  height: 15px;
+  color: white;
   position: absolute;
   bottom: 18px;
   left: 50%;
   translate: -50% 0;
   font-size: 12px;
-  font-weight: 700;
   letter-spacing: 1px;
 }
 
@@ -536,8 +557,9 @@ footer .copy-right {
     height: 624px;
   }
 }
-@media screen and (min-width: 1240px) and (max-width: 1440px) {
+@media screen and (min-width: 1241px) and (max-width: 1440px) {
   header nav {
+    padding: 0 20px;
     width: calc(100% - 50px);
     height: 100%;
   }
@@ -545,20 +567,38 @@ footer .copy-right {
     left: 50px;
   }
   main .product-showcase .rotate-img {
+    right: 0;
     width: 500px;
     height: 500px;
+  }
+  main .new-product img {
+    width: 800px;
+    height: 624px;
   }
 }
 @media screen and (min-width: 720px) and (max-width: 1240px) {
   header nav {
+    padding: 0 20px;
     width: calc(100% - 30px);
     height: 100%;
   }
   header nav .nav-logo {
     left: 30px;
   }
+  main .product-showcase .rotate-img {
+    right: 0;
+    width: 400px;
+    height: 400px;
+  }
+  main .new-product img {
+    width: 700px;
+    height: 624px;
+  }
+  footer .map iframe {
+    width: 500px;
+  }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 431px) {
   header {
     position: relative;
   }
@@ -566,8 +606,8 @@ footer .copy-right {
     padding: 0 20px;
   }
   header nav .nav-logo {
-    width: 96px;
-    height: 96px;
+    width: 70px;
+    height: 72px;
     position: absolute;
     top: 0;
     left: 50%;
@@ -599,7 +639,10 @@ header nav .social-media-area {
     visibility: hidden;
     background-color: rgba(131, 105, 54, 0.5);
   }
-  .pagination .content {
+  header .pagination {
+    display: none !important;
+  }
+  header .pagination .content {
     width: 100%;
     color: white;
   }

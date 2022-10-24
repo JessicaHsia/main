@@ -112,32 +112,81 @@ main {
 
   .hr-head {
     @include dimension(500px, auto);
+    @include flex-row(center, center);
     padding: 150px 0;
     margin: auto;
     // background-color: $grey-9;
 
-    hr {
-      border-color: $grey-8;
+    p {
+font-size: 24px;
+      &::before {
+        content: '———';
+
+      }
+
+      &::after {
+        content: '———';
+
+      }
     }
   }
 
   .news-container {
-    @include dimension(1440px, auto);
+    @include dimension(1090px, auto);
     margin: auto;
     padding-top: 40px;
     background-color: $grey-9;
 
     .news-card {
-      @include dimension(100%, auto);
+      @include dimension(100%, 402px);
       @include flex-row(center, flex-start);
-      padding-bottom: 150px;
-      background-color: $grey-8;
+      margin-bottom: 166px;
+      // background-color: $grey-8;
 
       .news-info {
-        @include dimension(640px, 402px);
+        @include dimension(555px, 402px);
         position: relative;
-        margin-right: 125px;
         background-color: $grey-7;
+
+
+        .news-date {
+          @include dimension(95px, 50px);
+          background-color: $logo_color;
+          position: absolute;
+          left: 50px;
+          z-index: 1;
+        }
+
+        .news-text {
+          @include dimension(555px, 100%);
+          position: relative;
+          background-color: $grey-7;
+
+          .news-text-title {
+            position: absolute;
+            top: 147px;
+            left: 51px;
+            background-color: #555;
+            font-size: 18px;
+          }
+
+          .new-text-content {
+            @include dimension(440px, 92px);
+            position: absolute;
+            left: 51px;
+            top: 201px;
+            background-color: #901111;
+          }
+        }
+
+        .news-date-duration {
+          @include dimension(161px, 13px);
+          position: absolute;
+          top: 322px;
+          left: 51px;
+          background-color: blue;
+
+        }
 
         a {
           text-decoration: none;
@@ -149,12 +198,12 @@ main {
           background-color: $grey-9;
           border-radius: 10px;
           position: absolute;
-          bottom: 0;
-          right: 0;
+          top: 318px;
+          right: 60px;
 
           &:hover {
             i {
-              transform: translateX(2.5em);
+              transform: translateX(1em);
               @include transition(0.5s, 0s, linear);
             }
           }
@@ -168,7 +217,7 @@ main {
       }
 
       .news-img {
-        @include dimension(675px, 402px);
+        @include dimension(535px, 402px);
         background-color: $grey-3;
       }
     }

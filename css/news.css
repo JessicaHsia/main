@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes test {}
 main {
   width: 100%;
@@ -25,14 +26,23 @@ main .page-area .page a:hover {
 main .hr-head {
   width: 500px;
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 150px 0;
   margin: auto;
 }
-main .hr-head hr {
-  border-color: #c2c2c2;
+main .hr-head p {
+  font-size: 24px;
+}
+main .hr-head p::before {
+  content: "———";
+}
+main .hr-head p::after {
+  content: "———";
 }
 main .news-container {
-  width: 1440px;
+  width: 1090px;
   height: auto;
   margin: auto;
   padding-top: 40px;
@@ -40,19 +50,54 @@ main .news-container {
 }
 main .news-container .news-card {
   width: 100%;
-  height: auto;
+  height: 402px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-bottom: 150px;
-  background-color: #c2c2c2;
+  margin-bottom: 166px;
 }
 main .news-container .news-card .news-info {
-  width: 640px;
+  width: 555px;
   height: 402px;
   position: relative;
-  margin-right: 125px;
   background-color: #969696;
+}
+main .news-container .news-card .news-info .news-date {
+  width: 95px;
+  height: 50px;
+  background-color: rgb(141, 215, 204);
+  position: absolute;
+  left: 50px;
+  z-index: 1;
+}
+main .news-container .news-card .news-info .news-text {
+  width: 555px;
+  height: 100%;
+  position: relative;
+  background-color: #969696;
+}
+main .news-container .news-card .news-info .news-text .news-text-title {
+  position: absolute;
+  top: 147px;
+  left: 51px;
+  background-color: #555;
+  font-size: 18px;
+}
+main .news-container .news-card .news-info .news-text .new-text-content {
+  width: 440px;
+  height: 92px;
+  position: absolute;
+  left: 51px;
+  top: 201px;
+  background-color: #901111;
+}
+main .news-container .news-card .news-info .news-date-duration {
+  width: 161px;
+  height: 13px;
+  position: absolute;
+  top: 322px;
+  left: 51px;
+  background-color: blue;
 }
 main .news-container .news-card .news-info a {
   text-decoration: none;
@@ -66,11 +111,11 @@ main .news-container .news-card .news-info .news-btn-area {
   background-color: #dcdcdc;
   border-radius: 10px;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: 318px;
+  right: 60px;
 }
 main .news-container .news-card .news-info .news-btn-area:hover i {
-  transform: translateX(2.5em);
+  transform: translateX(1em);
   transition-duration: 0.5s;
   transition-delay: 0s;
   transition-timing-function: linear;
@@ -81,7 +126,7 @@ main .news-container .news-card .news-info .news-btn-area button {
   font-size: 1rem;
 }
 main .news-container .news-card .news-img {
-  width: 675px;
+  width: 535px;
   height: 402px;
   background-color: #393939;
 }/*# sourceMappingURL=news.css.map */

@@ -45,14 +45,24 @@ main .logo-area {
   padding: 148px 0;
 }
 main .logo-area .logo {
-  width: 605px;
+  width: 900px;
   height: 126px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: black;
   color: rgb(107, 78, 38);
   font-size: 2rem;
+}
+main .logo-area .logo .logo-img {
+  width: 434px;
+  height: 100%;
+  background-color: #7e7e7e;
+}
+main .logo-area .logo .logo-text {
+  width: 330px;
+  height: 100%;
+  background-color: #901111;
+  color: black;
 }
 main .banner-area {
   width: 100%;
@@ -63,8 +73,8 @@ main .banner-area {
   margin-bottom: 120px;
 }
 main .banner-area .banner {
-  width: 1229px;
-  height: 565px;
+  width: 1091px;
+  height: 505px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,13 +98,13 @@ main .slogan-area .slogan-text {
   align-items: center;
   background-color: white;
   color: black;
-  font-size: 1.5rem;
+  font-size: 24px;
   position: absolute;
   z-index: 1;
 }
 main .slogan-area .slogan-oval1 {
-  width: 800px;
-  height: 290px;
+  width: 646px;
+  height: 235px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,8 +113,8 @@ main .slogan-area .slogan-oval1 {
   border-radius: 50%;
 }
 main .slogan-area .slogan-oval1 .slogan-oval2 {
-  width: 730px;
-  height: 295px;
+  width: 587.97px;
+  height: 235.73px;
   display: flex;
   justify-content: center;
   align-items: center;
