@@ -144,11 +144,12 @@ header {
     border-top: 7px solid $logo_color;
     background-color: white;
     z-index: 3;
+    position: relative;
 
     nav {
         @include flex-row(flex-end, center);
         position: relative;
-        max-width: 1440px;
+        max-width: 1100px;
         height: 100%;
         margin: auto;
         background-color: white;
@@ -163,10 +164,18 @@ header {
             top: 15px;
             left: 0;
             border-radius: 50%;
-            z-index: 1;
+            z-index: 4;
         }
 
         .nav-btns {
+            li {
+                @include flex-row(center, center);
+            }
+
+            a+a {
+                margin-left: 12px;
+            }
+
             @include flex-row(flex-end, center);
             position: relative;
             height: 100%;
@@ -174,34 +183,20 @@ header {
             padding: 0 28px;
             background-color: white;
 
-            a {
-                ul {
-                    li {
-                        @include flex-row(center, center);
-                    }
-                }
-            }
-
-            a+a {
-                margin-left: 12px;
-            }
-
-
             .nav-style {
                 @include flex-row(center, center);
                 position: relative;
                 padding: 4px 8px;
                 text-decoration: none;
-                color: black;
+                color: $grey-1;
                 font-weight: 700;
-                font-size: 18px;
+                font-size: 1.2em;
                 letter-spacing: 1px;
                 transition: 0.3s ease;
                 z-index: 2;
 
                 &:hover {
-                    background-color: rgb(20, 20, 20);
-                    color: $darkgold;
+                    background-color: #fff;
                 }
 
                 &#order .order-menu {
@@ -278,21 +273,24 @@ header {
 
     .ham-icon,
     #toggle_menu {
-        
+
         display: none
     }
 
+    //  --pagination
     .pagination {
         @include dimension(100%, 40px);
         @include flex-row(flex-end, center);
         position: absolute;
+        left: 50%;
+        transform: translateX(calc(-45% + 20px));
         // top: 100%;
 
         .content {
             @include flex-row(space-around, center);
             @include dimension(calc(50% + 720px - 67px), 100%);
             padding: 0 10%;
-            background-color: #000;
+            background-color: lightblue;
             z-index: 1;
 
             a {
@@ -583,67 +581,63 @@ main {
 
 footer {
     @include dimension(100%, 468px);
-    @include flex-row(space-between, center);
-    position: relative;
-    background-color: $logo_color;
+    @include flex-col(center, center);
+    background-color: $grey-7;
     color: $darkgold;
 
-    .information {
-        position: absolute;
-        top: 50%;
-        left: 18%;
-        translate: 0 -50%;
-        padding: 20px;
-        font-size: 1rem;
-        background-color: $logo_color;
+    .footer_box {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
 
-        #footer_title {
-            @include dimension(261px, 87px);
-            background-image: url(../img/logo-橫式-white.png);
-            background-position: center;
-            background-size: contain;
-            // @include flex-row(flex-start, flex-end);
-            // margin-bottom: 10px;
-            // font-size: 1.2rem;
-            // border-bottom: 1px solid $darkgold;
-            // background-color: $grey-2;
+        .information {
+            @include flex-row(center, center);
+
+            .information_box {
+                width: 350px;
+                font-size: 14px;
+                background-color: $grey-6;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                #footer_title {
+                    @include dimension(261px, 87px);
+                    @include flex-row(flex-start, flex-end);
+                    border-bottom: 1px solid $darkgold;
+                    background-color: $grey-2;
+                }
+
+                .text {
+                    background-color: $grey-8;
+                    color: white;
+                    padding-top: 10px;
+
+                    i {
+                        padding: 5px 10px;
+                        font-size: 20px;
+                    }
+                }
+            }
         }
 
-        .text {
-            background-color: $logo_color;
+        .map {
+            @include flex-row(center, center);
 
-            div {
-                padding-top: 20px;
+            iframe {
+                @include dimension(554px, 236px);
+                border: 0;
+                border-radius: 40px;
+                padding: 10px;
             }
-
-            i {
-                padding-right: 20px;
-                font-size: 20px;
-            }
-        }
-    }
-
-    .map {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: 12px -50%;
-        padding: 12px;
-
-        iframe {
-            @include dimension(624px, 313px);
-            border: 0;
-            border-radius: 40px;
         }
     }
 
     .copy-right {
         @include dimension(419px, 15px);
+        @include flex-row(center, center);
+        transform: translate(0, 250%);
         color: white;
-        position: absolute;
-        bottom: 18px;
-        left: 50%;
-        translate: -50% 0;
         font-size: 12px;
         letter-spacing: 1px;
     }
@@ -705,6 +699,17 @@ footer {
             }
         }
     }
+
+    footer {
+        .footer_box {
+            .map {
+                iframe {
+                    width: 400px;
+                }
+            }
+        }
+    }
+
 }
 
 // -- End of 1440px
@@ -715,11 +720,11 @@ footer {
 @media screen and(min-width:720px) and (max-width:1240px) {
     header {
         nav {
-            padding: 0 20px;
-            @include dimension(calc(100% - 30px), 100%);
+            width: 100%;
+            padding: 0 5%;
 
             .nav-logo {
-                left: 30px;
+                margin: 0 5%;
             }
         }
     }
@@ -740,20 +745,80 @@ footer {
     }
 
     footer {
-        .map {
-            iframe {
-                width: 500px;
+        .footer_box {
+            .map {
+                iframe {
+                    width: calc(100% - 100px);
+                }
+
             }
         }
+
     }
 }
 
 //--End of 1240px
 
 
+//--1024 px
+@media screen and (min-width:750px) and (max-width:1024px) {
+
+    header {
+        nav {
+            width: 100%;
+            padding: 0 5%;
+
+            .nav-logo {
+                margin: 0 5%;
+            }
+        }
+    }
+
+    footer {
+        .footer_box {
+            @include flex-row(center, center);
+
+            // .information {}
+
+            .map {
+                display: none;
+            }
+        }
+    }
+
+    #phone_Ham:checked+.phone-ham-list {
+        visibility: visible;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+//--End of 1024px
+
+
+
+
+//--750px
+
+@media screen and (min-width:720px) and (max-width:750px) {
+    header {
+        nav {
+            .nav-btns {
+                .nav-style {
+                    padding: 4px 4px;
+                }
+            }
+        }
+    }
+}
+
+//--End of 750px
+
+
+
 
 // -- 720px
-@media screen and (max-width: 431px) {
+@media screen and (max-width: 720px) {
     header {
         position: relative;
 
@@ -762,10 +827,10 @@ footer {
 
             .nav-logo {
                 @include dimension(70px, 72px);
+                transform: translateX(-50%);
                 position: absolute;
-                top: 0;
                 left: 50%;
-                translate: -50% 0;
+                top: 0;
             }
 
             .nav-btns,
@@ -818,25 +883,17 @@ footer {
 
 
     footer {
+        .footer_box {
+            @include flex-row(center, center);
 
-        .information,
-        .map {
-            position: relative !important;
-            top: 0;
-            left: 0;
-            translate: 0 0;
+            // .information {}
+
+            .map {
+                display: none;
+            }
         }
-
-        // .map {
-        //     display: none;
-        // }
     }
 
-    #phone_Ham:checked+.phone-ham-list {
-        visibility: visible;
-        height: 100vh;
-        width: 100%;
-    }
 
 }
 
