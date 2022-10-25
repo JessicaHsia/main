@@ -118,7 +118,8 @@ main {
     // background-color: $grey-9;
 
     p {
-font-size: 24px;
+      font-size: 24px;
+
       &::before {
         content: '———';
 
@@ -145,73 +146,77 @@ font-size: 24px;
 
       .news-info {
         @include dimension(555px, 402px);
-        position: relative;
         background-color: $grey-7;
 
 
         .news-date {
           @include dimension(95px, 50px);
           background-color: $logo_color;
-          position: absolute;
-          left: 50px;
+          // position: absolute;
+          // left: 50px;
+          transform: translate(50%, 0);
           z-index: 1;
         }
 
         .news-text {
-          @include dimension(555px, 100%);
-          position: relative;
+          @include dimension(453px, 155px);
+          margin: 90px 0 22px 10%;
           background-color: $grey-7;
 
           .news-text-title {
-            position: absolute;
-            top: 147px;
-            left: 51px;
+            // position: absolute;
+            // top: 147px;
+            // left: 51px;
+            @include dimension(80%, 30px);
+            margin-bottom: 32px;
             background-color: #555;
             font-size: 18px;
           }
 
           .new-text-content {
             @include dimension(440px, 92px);
-            position: absolute;
-            left: 51px;
-            top: 201px;
             background-color: #901111;
           }
         }
 
-        .news-date-duration {
-          @include dimension(161px, 13px);
-          position: absolute;
-          top: 322px;
-          left: 51px;
-          background-color: blue;
+        .news-date-duration-box {
+          @include flex-row(space-between, center);
+          padding: 0 10%;
 
-        }
+          .news-date-duration {
+            @include dimension(161px, 13px);
+            // position: absolute;
+            // top: 322px;
+            // left: 51px;
+            background-color: blue;
 
-        a {
-          text-decoration: none;
-        }
-
-        .news-btn-area {
-          @include dimension(20%, 10%);
-          @include flex-row(left, center);
-          background-color: $grey-9;
-          border-radius: 10px;
-          position: absolute;
-          top: 318px;
-          right: 60px;
-
-          &:hover {
-            i {
-              transform: translateX(1em);
-              @include transition(0.5s, 0s, linear);
-            }
           }
 
-          button {
-            background-color: transparent;
-            border: 0px;
-            font-size: 1rem;
+          a {
+            text-decoration: none;
+          }
+
+          .news-btn-area {
+            @include dimension(20%, 10%);
+            @include flex-row(left, center);
+            background-color: $grey-9;
+            border-radius: 10px;
+            // position: absolute;
+            // top: 318px;
+            // right: 60px;
+
+            &:hover {
+              i {
+                transform: translateX(1em);
+                @include transition(0.5s, 0s, linear);
+              }
+            }
+
+            button {
+              background-color: transparent;
+              border: 0px;
+              font-size: 1rem;
+            }
           }
         }
       }
@@ -219,6 +224,52 @@ font-size: 24px;
       .news-img {
         @include dimension(535px, 402px);
         background-color: $grey-3;
+      }
+    }
+  }
+}
+
+@media (max-width: 1240px) {
+  main {
+    .news-container {
+      @include dimension(80%, auto);
+
+      .news-card {
+        .news-info {
+          width: 50%;
+
+          .news-text {
+            margin: 50px 0 80px 10%;
+            @include dimension(90%, 155px);
+
+            .new-text-content {
+              @include dimension(90%, 100px);
+            }
+          }
+        }
+
+        .news-img {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  main {
+    .news-container {
+      .news-card {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        .news-info {
+          @include dimension(90%, 50%);
+        }
+        .news-img {
+          width: 90%;
+        }
       }
     }
   }

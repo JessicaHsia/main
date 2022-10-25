@@ -292,7 +292,14 @@ main {
                 @include flex-row(center, center);
                 background-color: lightcyan;
                 color: black;
-                font-size: 2rem;
+                font-size: 18px;
+                ul{
+                    @include flex-col(center, flex-start);
+                    li:nth-of-type(1){
+                        font-size: 20px;
+                        line-height: 35px;
+                    }
+                }
             }
 
             .vl {
@@ -344,6 +351,18 @@ main {
                     margin-bottom: 112px;
                     line-height: 24px;
                     font-size: 16px;
+                }
+            }
+        }
+
+        .slogan-area{
+            .slogan-text{
+                font-size: 16px;
+            }
+            .slogan-oval1{
+                @include dimension(380px, 160px);
+                .slogan-oval2{
+                    @include dimension(380px, 160px);
                 }
             }
         }

@@ -215,7 +215,17 @@ main .history-area .brand-area .brand-story {
   align-items: center;
   background-color: lightcyan;
   color: black;
-  font-size: 2rem;
+  font-size: 18px;
+}
+main .history-area .brand-area .brand-story ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+main .history-area .brand-area .brand-story ul li:nth-of-type(1) {
+  font-size: 20px;
+  line-height: 35px;
 }
 main .history-area .brand-area .vl {
   width: 1px;
@@ -261,6 +271,17 @@ main .history-area .brand-area .brand-picture {
     margin-bottom: 112px;
     line-height: 24px;
     font-size: 16px;
+  }
+  main .slogan-area .slogan-text {
+    font-size: 16px;
+  }
+  main .slogan-area .slogan-oval1 {
+    width: 380px;
+    height: 160px;
+  }
+  main .slogan-area .slogan-oval1 .slogan-oval2 {
+    width: 380px;
+    height: 160px;
   }
   main .history-area {
     width: 100%;
