@@ -100,18 +100,21 @@ body {
     position: relative;
 }
 
+ul,
+li {
+    list-style: none;
+}
+
 header {
     @include dimension(100%, 70px);
     // position: fixed;
-    top: 0;
     border-top: 7px solid white;
     background-color: $logo_color;
-    z-index: 3;
 
     nav {
         @include flex-row(flex-end, center);
         position: relative;
-        max-width: 1440px;
+        max-width: 1100px;
         height: 100%;
         margin: auto;
         background-color: $logo_color;
@@ -130,12 +133,8 @@ header {
         }
 
         .nav-btns {
-            a {
-                ul {
-                    li {
-                        @include flex-row(center, center);
-                    }
-                }
+            li{
+                @include flex-row(center, center);
             }
 
             a+a {
@@ -154,7 +153,7 @@ header {
                 position: relative;
                 padding: 4px 8px;
                 text-decoration: none;
-                color: $darkgold;
+                color: $grey-1;
                 font-weight: 700;
                 font-size: 1.2em;
                 letter-spacing: 1px;
@@ -269,64 +268,62 @@ header {
 
 footer {
     @include dimension(100%, 468px);
-    @include flex-row(space-between, center);
-    position: relative;
+    @include flex-col(center, center);
     background-color: $grey-7;
     color: $darkgold;
 
-    .information {
-        position: absolute;
-        top: 50%;
-        left: 18%;
-        translate: 0 -50%;
-        padding: 20px;
-        font-size: 1rem;
-        background-color: $grey-6;
+    .footer_box {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
 
-        #footer_title {
-            @include dimension(261px, 87px);
-            @include flex-row(flex-start, flex-end);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            border-bottom: 1px solid $darkgold;
-            background-color: $grey-2;
+        .information {
+            @include flex-row(center, center);
+
+            .information_box {
+                width: 350px;
+                font-size: 14px;
+                background-color: $grey-6;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                #footer_title {
+                    @include dimension(261px, 87px);
+                    @include flex-row(flex-start, flex-end);
+                    border-bottom: 1px solid $darkgold;
+                    background-color: $grey-2;
+                }
+
+                .text {
+                    background-color: $grey-8;
+                    color: white;
+                    padding-top: 10px;
+
+                    i {
+                        padding: 5px 10px;
+                        font-size: 20px;
+                    }
+                }
+            }
         }
 
-        .text {
-            background-color: $grey-8;
+        .map {
+            @include flex-row(center, center);
 
-            div {
-                padding-top: 20px;
+            iframe {
+                @include dimension(554px, 236px);
+                border: 0;
+                border-radius: 40px;
+                padding: 10px;
             }
-
-            i {
-                padding-right: 20px;
-                font-size: 20px;
-            }
-        }
-    }
-
-    .map {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: 12px -50%;
-        padding: 12px;
-
-        iframe {
-            @include dimension(624px, 313px);
-            border: 0;
-            border-radius: 40px;
         }
     }
 
     .copy-right {
         @include dimension(419px, 15px);
+        @include flex-row(center, center);
+        transform: translate(0, 250%);
         color: white;
-        position: absolute;
-        bottom: 18px;
-        left: 50%;
-        translate: -50% 0;
         font-size: 12px;
         letter-spacing: 1px;
     }
@@ -339,14 +336,13 @@ footer {
 
 
 // --1440px
-@media screen and(min-width:1240px) and (max-width:1440px) {
-    header {
-        nav {
-            @include dimension(calc(100% - 50px), 100%);
-
-            .nav-logo {
-                padding: 0 20px;
-                left: 50px;
+@media (min-width:1240px) and (max-width:1440px) {
+    footer{
+        .footer_box{
+            .map{
+                iframe{
+                    width: 400px;
+                }
             }
         }
     }
@@ -357,99 +353,56 @@ footer {
 
 
 //-- 1240px
-@media screen and(min-width:720px) and (max-width:1240px) {
-    header {
-        nav {
-            @include dimension(calc(100% - 30px), 100%);
+@media screen and (min-width:1024px) and (max-width:1280px) {
 
-            .nav-logo {
-                padding: 0 20px;
-                left: 30px;
+    header{
+        nav{
+            width: 100%;
+            padding: 0 5%;
+            .nav-logo{
+                margin: 0 5%;
             }
         }
     }
 
     footer {
-        .map {
-            iframe {
-                width: 500px;
+        .footer_box {
+            .map {
+                iframe{
+                    width: calc(100% - 100px);
+                }
+
             }
         }
+
     }
 }
 
 //--End of 1240px
 
 
+@media (max-width:1024px) {
 
-// -- 720px
-@media screen and (max-width: 720px) {
-    header {
-        position: relative;
-
-        nav {
-            padding: 0 20px;
-
-            .nav-logo {
-                @include dimension(96px, 96px);
-                position: absolute;
-                top: 0;
-                left: 50%;
-                translate: -50% 0;
-            }
-
-            .nav-btns,
-            .social-media-area {
-                display: none;
-            }
-        }
-
-        .ham-icon {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            display: block;
-            font-size: 3rem;
-            // background-color: rgb(48, 68, 111);
-            z-index: 20;
-        }
-
-        #ham_icon:checked~#toggle_menu {
-            display: block;
-            visibility: visible;
-        }
-
-        #toggle_menu {
-            @include dimension(100%, 100vh);
-            position: fixed;
-            top: 0;
-            display: none;
-            visibility: hidden;
-            background-color: rgba(131, 105, 54, 0.5);
-        }
-    }
-
-    .pagination {
-        .content {
+    header{
+        nav{
             width: 100%;
-            color: white;
+            padding: 0 5%;
+            .nav-logo{
+                margin: 0 5%;
+            }
         }
     }
 
     footer {
+        .footer_box {
+            @include flex-row(center, center);
 
-        .information,
-        .map {
-            position: relative !important;
-            top: 0;
-            left: 0;
-            translate: 0 0;
+            .information {}
+
+            .map {
+                display: none;
+            }
         }
-
-        // .map {
-        //     display: none;
-        // }
     }
 
     #phone_Ham:checked+.phone-ham-list {
@@ -457,7 +410,111 @@ footer {
         height: 100vh;
         width: 100%;
     }
-
 }
+
+
+@media (max-width: 750px) {
+    header{
+        nav{
+            .nav-btns{
+                .nav-style{
+                    padding: 4px 4px;
+                }
+            }
+        }
+    }
+}
+
+@media  (max-width:720px) {
+    header{
+        nav{
+            .nav-btns{
+                .nav-style{
+                    display: none;
+                }
+            }
+        }
+    }
+    footer{
+        .footer_box{
+            .information{
+                .information_box{
+                    @include flex-col(center, center);
+                }
+            }
+        }
+    }
+}
+
+// -- 720px
+// @media screen and (min-width:760px) and (max-width: 1024px) {
+//     header {
+//         position: relative;
+
+//         nav {
+//             padding: 0 20px;
+
+//             .nav-logo {
+//                 @include dimension(96px, 96px);
+//                 position: absolute;
+//                 top: 0;
+//                 left: 50%;
+//                 translate: -50% 0;
+//             }
+
+//             .nav-btns,
+//             .social-media-area {
+//                 display: none;
+//             }
+//         }
+
+//         .ham-icon {
+//             position: absolute;
+//             right: 0;
+//             top: 50%;
+//             transform: translateY(-50%);
+//             display: block;
+//             font-size: 3rem;
+//             // background-color: rgb(48, 68, 111);
+//             z-index: 20;
+//         }
+
+//         #ham_icon:checked~#toggle_menu {
+//             display: block;
+//             visibility: visible;
+//         }
+
+//         #toggle_menu {
+//             @include dimension(100%, 100vh);
+//             position: fixed;
+//             top: 0;
+//             display: none;
+//             visibility: hidden;
+//             background-color: rgba(131, 105, 54, 0.5);
+//         }
+//     }
+
+//     .pagination {
+//         .content {
+//             width: 100%;
+//             color: white;
+//         }
+//     }
+
+//     footer {
+//         .footer_box{
+//             .map{
+//                 display: none;
+//             }
+//         }
+//     }
+
+//     #phone_Ham:checked+.phone-ham-list {
+//         visibility: visible;
+//         height: 100vh;
+//         width: 100%;
+//     }
+
+// }
 
 // -- End of 720px

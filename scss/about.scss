@@ -105,6 +105,10 @@ $darkgold: rgb(107, 78, 38);
     color: $color;
 }
 
+ul,
+li {
+    list-style: none;
+}
 
 // -- End of mixin --
 
@@ -135,6 +139,24 @@ main {
 
     }
 
+    .phone_title {
+
+        li {
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+
+            span {
+                letter-spacing: 10px;
+                padding: 18px 10px;
+                text-align: center;
+                font-size: 18px;
+            }
+        }
+    }
+
     .logo-area {
         @include dimension(100%, auto);
         @include flex-row(center, center);
@@ -143,20 +165,25 @@ main {
 
         .logo {
             @include dimension(900px, 126px);
-            @include flex-row(space-between, center);
+            @include flex-row(space-around, center);
             // background-color: black;
             color: $darkgold;
-            font-size: 2rem;
+
 
             .logo-img {
-                @include dimension(434px, 100%);
+                @include dimension(434px, 126px);
                 background-color: #7e7e7e;
+                @include flex-row(center, center);
             }
 
             .logo-text {
-                @include dimension(330px, 100%);
-                background-color: #901111;
+                @include dimension(330px, 120px);
+                // background-color: #901111;
                 color: black;
+                font-size: 18px;
+                @include flex-col(center, center);
+                line-height: 30px;
+                font-size: 20px;
             }
         }
     }
@@ -229,7 +256,14 @@ main {
                 @include flex-row(center, center);
                 background-color: lightcyan;
                 color: black;
-                font-size: 2rem;
+                font-size: 18px;
+                ul{
+                    @include flex-col(center, flex-start);
+                    li:nth-of-type(1){
+                        font-size: 20px;
+                        line-height: 35px;
+                    }
+                }
             }
 
             .vl {
@@ -277,4 +311,100 @@ main {
         }
     }
 
+}
+
+
+//phone-size:720px
+
+@media (max-width: 720px) {
+    main {
+        .phone_title {
+
+            li {
+                opacity: 1;
+            }
+        }
+
+        .logo-area {
+            height: 100%;
+            padding: 0;
+
+            .logo {
+                @include flex-col(space-between, center);
+                height: 100%;
+
+                .logo-img {
+                    @include dimension(260px, 75px);
+                    margin-top: 112px;
+                    margin-bottom: 107px;
+                }
+
+                .logo-text {
+                    @include dimension(300px, 96px);
+                    margin-bottom: 112px;
+                    line-height: 24px;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .history-area{
+            @include dimension(100%, 100%);
+            .cordon-area{
+                @include flex-col(space-around, center);
+                padding: 50px 0;
+                .cordon-story{
+                    @include dimension(100%, 100%);
+                    @include flex-col(center, center);
+                    font-size: 16px;
+                    line-height: 24px;
+                    ul{
+                        @include flex-col(center, flex-start);
+                        li:nth-of-type(1){
+                            font-size: 18px;
+                            line-height: 35px;
+                            margin-top: 100px;
+                        }
+                        li:nth-last-of-type(1){
+                            margin-bottom: 112px;
+                        }
+                    }
+                }
+                .vl{
+                    display: none;
+                }
+                
+                .cordon-graduate{
+                    @include dimension(100%, 500px);
+                }
+            }
+            .brand-area{
+                @include flex-col(space-around, center);
+                padding: 50px 0;
+                .brand-picture{
+                    @include dimension(100%, 500px);
+                }
+                .brand-story{
+                    @include dimension(100%, 100%);
+                    @include flex-col(center, center);
+                    font-size: 16px;
+                    line-height: 24px;
+                    ul{
+                        @include flex-col(center, flex-start);
+                        li:nth-of-type(1){
+                            font-size: 18px;
+                            line-height: 35px;
+                            margin-top: 100px;
+                        }
+                        li:nth-last-of-type(1){
+                            margin-bottom: 112px;
+                        }
+                    }
+                }
+                .vl{
+                    display: none;
+                }
+            }
+        }
+    }
 }
